@@ -25,11 +25,10 @@ class config
         return self::$config["sites"];
     }
     static function getCurrentSiteConfig(){
-        return new class extends config{
-            static function getRoutes(){
-               return parent::$config["sites"][engine::getCurrentDomain(false)]["routes"];
-            }
-        };
+
+               return self::$config["sites"][engine::getCurrentDomain(false)]["routes"];
+
+
     }
     static function setDB($server, $user, $pass, $prefix = DB_PREFIX.""){
         self::$config["db"]["server"] = $server;

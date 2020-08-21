@@ -64,7 +64,7 @@ class router
     static function setAddresses()
     {
       //  self::checkBan();
-        self::$addresses = config::getCurrentSiteConfig()->getRoutes();
+        self::$addresses = config::getCurrentSiteConfig()["routes"];
 
     }
     private static $_routeParams = [];
