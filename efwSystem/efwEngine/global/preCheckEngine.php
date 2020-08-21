@@ -15,16 +15,11 @@ class preCheckEngine
         foreach ($checkData as $filter => $val){
             switch ($filter){
                 case "permissions":
-
                     $state = roles::reqPerm($val);
                     break;
                 case "login":
                     $state = user::checkLogin();
                     if($val == "forward" && $state == false) system::redirect("/account/login/");
-                    break;
-                case "banTransaction":
-                    $transactionID = router::getParameters()[0];
-                    $state = !apiMontra::isTransactionBlocked($transactionID);
                     break;
             }
         }
