@@ -15,8 +15,9 @@ class config
     static function get($conf){
         return self::$config[$conf];
     }
-    static function regSite($siteAddress, $siteName, $routes, $cdnBasedir, $cdnURL = "/", $logo = "", $wssServer = "", $wssServerKey = ""){
-    self::$config["sites"][$siteAddress] = ["address" => $siteAddress, "name" => $siteName, "routes" => $routes, "cdnURL" => $cdnURL, "logo" => $logo, "wssSerever" => $wssServer, "wssServerKey" => $wssServerKey, "cdnBasedir" => $cdnBasedir];
+    static function regSite($siteAddress, $siteName, $routes, $cdnBasedir, $cdnURL = "/", $logo = "", $wssServer = "", $wssServerKey = "", $ecryptionKey = ""){
+    self::$config["sites"][$siteAddress] = ["address" => $siteAddress, "name" => $siteName, "routes" => $routes, "cdnURL" => $cdnURL, "logo" => $logo, "wssSerever" => $wssServer, "wssServerKey" => $wssServerKey, "cdnBasedir" => $cdnBasedir,
+     "encryptionKey" => $ecryptionKey];
         engine::registerSite($siteAddress, $cdnURL, $siteName, count(self::$config["sites"]));
 
     }
